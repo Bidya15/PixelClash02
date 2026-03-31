@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexOS — Next-Gen Web OS</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap"
+        rel="stylesheet" />
+    <style>
+        @import url("style.css");
+    </style>
+</head>
+
+<body>
+
+    <!-- FLYOUT TOGGLES -->
+    <input type="checkbox" id="vol-toggle" class="app-toggle" />
+    <input type="checkbox" id="notif-toggle" class="app-toggle" />
+    <input type="checkbox" id="net-toggle" class="app-toggle" />
+    <input type="checkbox" id="sys-sleep" class="app-toggle" />
+    <input type="checkbox" id="sys-restart" class="app-toggle" />
+
+    <!-- OS THEME TOGGLES -->
+    <input type="radio" name="sys-theme" id="theme-dark" class="app-toggle" checked />
+    <input type="radio" name="sys-theme" id="theme-light" class="app-toggle" />
+    <input type="radio" name="sys-theme" id="theme-matrix" class="app-toggle" />
+
+
+    <input type="checkbox" id="app-browser" class="app-toggle" />
+    <input type="checkbox" id="app-ai" class="app-toggle" />
+    <input type="checkbox" id="app-vault" class="app-toggle" />
+    <input type="checkbox" id="app-signal" class="app-toggle" />
+    <input type="checkbox" id="app-bio" class="app-toggle" />
+    <input type="checkbox" id="app-quant" class="app-toggle" />
+    <input type="checkbox" id="app-pulse" class="app-toggle" />
+    <input type="checkbox" id="app-space" class="app-toggle" />
+    <input type="checkbox" id="app-settings" class="app-toggle" />
+    <input type="checkbox" id="app-data" class="app-toggle" />
+    <input type="checkbox" id="app-console" class="app-toggle" />
+    <input type="checkbox" id="app-files" class="app-toggle" />
+    <input type="checkbox" id="app-text" class="app-toggle" />
+    <input type="checkbox" id="sys-power" class="app-toggle" />
+
+    <div class="crt-overlay"></div>
+
+
+    <div class="bg-canvas"></div>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+
+    <div class="particles">
+        <div class="particle" style="
+          left: 5%;
+          animation-duration: 12s;
+          animation-delay: 0s;
+          --drift: 30px;
+        "></div>
+        <div class="particle" style="
+          left: 14%;
+          animation-duration: 15s;
+          animation-delay: 2s;
+          --drift: -20px;
+        "></div>
+        <div class="particle" style="
+          left: 25%;
+          animation-duration: 10s;
+          animation-delay: 4s;
+          --drift: 15px;
+        "></div>
+        <div class="particle" style="
+          left: 35%;
+          animation-duration: 18s;
+          animation-delay: 1s;
+          --drift: -35px;
+        "></div>
+        <div class="particle" style="
+          left: 48%;
+          animation-duration: 13s;
+          animation-delay: 6s;
+          --drift: 25px;
+        "></div>
+        <div class="particle" style="
+          left: 60%;
+          animation-duration: 16s;
+          animation-delay: 3s;
+          --drift: -18px;
+        "></div>
+        <div class="particle" style="
+          left: 70%;
+          animation-duration: 11s;
+          animation-delay: 7s;
+          --drift: 40px;
+        "></div>
+        <div class="particle" style="
+          left: 80%;
+          animation-duration: 14s;
+          animation-delay: 2.5s;
+          --drift: -28px;
+        "></div>
+        <div class="particle" style="
+          left: 90%;
+          animation-duration: 9s;
+          animation-delay: 5s;
+          --drift: 12px;
+        "></div>
+        <div class="particle" style="
+          left: 20%;
+          animation-duration: 20s;
+          animation-delay: 8s;
+          --drift: -45px;
+        "></div>
+        <div class="particle" style="
+          left: 55%;
+          animation-duration: 17s;
+          animation-delay: 1.5s;
+          --drift: 22px;
+        "></div>
+        <div class="particle" style="
+          left: 75%;
+          animation-duration: 12s;
+          animation-delay: 9s;
+          --drift: -30px;
+        "></div>
+    </div>
+
+
+    <input type="checkbox" id="start-toggle" />
+
+    <div class="desktop">
+
+        <header class="topbar">
+            <div class="topbar-left">
+                <div class="nexos-brand">NEXOS</div>
+                <div class="topbar-dot"></div>
+                <div style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 10px;
+              color: var(--text-muted);
+              letter-spacing: 1px;
+            ">
+                    v4.2.1 · KERNEL
+                </div>
+            </div>
+            <div class="topbar-center">
+                SECURE CHANNEL ESTABLISHED · AES-256 ENCRYPTED
+            </div>
+            <div class="topbar-right">
+                <div class="status-item">
+                    <div class="status-dot online"></div>
+                    NETWORK
+                </div>
+                <div class="status-item">
+                    <div class="status-dot warn"></div>
+                    GPU 87°C
+                </div>
+                <div class="status-item" style="color: var(--accent-cyan); font-weight: 600">
+                    ⬡ NODE ACTIVE
+                </div>
+            </div>
+        </header>
+
+
+        <main class="main-area">
+            <div class="welcome-strip">
+                <div class="welcome-text">Good Evening, <span>Commander</span></div>
+                <div class="welcome-sub">
+                    MON · 30.03.2026 · SESSION #4471 · ALL SYSTEMS NOMINAL
+                </div>
+            </div>
+
+
+            <div class="icon-grid">
+                <label class="icon-item" for="app-browser">
+                    <div class="icon-frame">🌐</div>
+                    <span class="icon-label">Nexus<br />Browser</span>
+                </label>
+                <label class="icon-item" for="app-ai">
+                    <div class="icon-frame">🔮</div>
+                    <span class="icon-label">AI<br />Studio</span>
+                </label>
+                <label class="icon-item" for="app-vault">
+                    <div class="icon-frame">🛡️</div>
+                    <span class="icon-label">Vault<br />Guard</span>
+                </label>
+                <label class="icon-item" for="app-signal">
+                    <div class="icon-frame">📡</div>
+                    <span class="icon-label">Signal<br />Monitor</span>
+                </label>
+                <label class="icon-item" for="app-bio">
+                    <div class="icon-frame">🧬</div>
+                    <span class="icon-label">Bio<br />Scanner</span>
+                </label>
+                <label class="icon-item" for="app-quant">
+                    <div class="icon-frame">💠</div>
+                    <span class="icon-label">Quantum<br />Calc</span>
+                </label>
+                <label class="icon-item" for="app-pulse">
+                    <div class="icon-frame">🎵</div>
+                    <span class="icon-label">Pulse<br />Audio</span>
+                </label>
+                <label class="icon-item" for="app-space">
+                    <div class="icon-frame">🌌</div>
+                    <span class="icon-label">Space<br />Map</span>
+                </label>
+                <label class="icon-item" for="app-settings">
+                    <div class="icon-frame">⚙️</div>
+                    <span class="icon-label">Core<br />Settings</span>
+                </label>
+                <label class="icon-item" for="app-data">
+                    <div class="icon-frame">📊</div>
+                    <span class="icon-label">Data<br />Flux</span>
+                </label>
+                <label class="icon-item" for="app-console">
+                    <div class="icon-frame">🔭</div>
+                    <span class="icon-label">Dev<br />Console</span>
+                </label>
+                <label class="icon-item" for="app-files">
+                    <div class="icon-frame">🗂️</div>
+                    <span class="icon-label">Hyper<br />Files</span>
+                </label>
+            </div>
+        </main>
+
+        <div class="start-menu-overlay">
+            <div class="start-menu">
+                <div class="sm-header">
+                    <div class="sm-avatar">👤</div>
+                    <div>
+                        <div class="sm-user-name">COMMANDER</div>
+                        <div class="sm-user-role">// root@nexos · CLEARANCE: ALPHA</div>
+                    </div>
+                </div>
+                <input class="sm-search" type="text" placeholder="Search applications…" />
+                <div class="sm-section-title">Pinned Apps</div>
+                <div class="sm-apps">
+                    <label class="sm-app" for="app-browser">
+                        <span class="sm-app-icon">🌐</span><span class="sm-app-name">Browser</span>
+                    </label>
+                    <label class="sm-app" for="app-ai">
+                        <span class="sm-app-icon">🔮</span><span class="sm-app-name">AI Studio</span>
+                    </label>
+                    <label class="sm-app" for="app-signal">
+                        <span class="sm-app-icon">📡</span><span class="sm-app-name">Monitor</span>
+                    </label>
+                    <label class="sm-app" for="app-vault">
+                        <span class="sm-app-icon">🛡️</span><span class="sm-app-name">Vault</span>
+                    </label>
+                    <label class="sm-app" for="app-quant">
+                        <span class="sm-app-icon">💠</span><span class="sm-app-name">Quantum</span>
+                    </label>
+                    <label class="sm-app" for="app-settings">
+                        <span class="sm-app-icon">⚙️</span><span class="sm-app-name">Settings</span>
+                    </label>
+                </div>
+                <div class="sm-section-title">Recent</div>
+                <div class="sm-apps" style="margin-bottom: 18px">
+                    <label class="sm-app" for="app-data">
+                        <span class="sm-app-icon">📊</span><span class="sm-app-name">DataFlux</span>
+                    </label>
+                    <label class="sm-app" for="app-console">
+                        <span class="sm-app-icon">🔭</span><span class="sm-app-name">Console</span>
+                    </label>
+                </div>
+                <div class="sm-actions">
+                    <label for="start-toggle" class="sm-action" style="cursor: pointer">✕ Close</label>
+                    <label class="sm-action" for="sys-sleep" style="cursor: pointer">⏸ Sleep</label>
+                    <label class="sm-action" for="sys-restart" style="cursor: pointer">🔄 Restart</label>
+                    <label class="sm-action power" for="sys-power" style="cursor: pointer">⏻ Power</label>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- TRAY FLYOUTS MOVED TO ROOT -->
+
+        <footer class="taskbar">
+            <div class="taskbar-left">
+                <label for="start-toggle" class="start-btn-label">
+                    <span class="start-icon">⬡</span>
+                    <span class="start-text">START</span>
+                </label>
+            </div>
+
+            <div class="taskbar-center">
+                <label class="tb-app active" for="app-browser">
+                    🌐<span class="tooltip">Browser</span>
+                </label>
+                <label class="tb-app" for="app-ai">🔮<span class="tooltip">AI Studio</span></label>
+                <label class="tb-app" for="app-signal">📡<span class="tooltip">Signal</span></label>
+                <label class="tb-app" for="app-vault">🛡️<span class="tooltip">Vault</span></label>
+                <label class="tb-app" for="app-data">📊<span class="tooltip">DataFlux</span></label>
+                <label class="tb-app" for="app-console">🔭<span class="tooltip">Console</span></label>
+                <label class="tb-app" for="app-pulse">🎵<span class="tooltip">Pulse Audio</span></label>
+            </div>
+
+            <div class="taskbar-right">
+                <div class="tray-icons">
+                    <label class="tray-btn" for="net-toggle" title="Network Connections"
+                        style="cursor:pointer">📶</label>
+                    <label class="tray-btn" for="vol-toggle" title="Volume Control">🔊</label>
+                    <label class="tray-btn" for="notif-toggle" style="position: relative" title="Notifications">
+                        🔔<span class="badge">3</span>
+                    </label>
+                    <div class="tray-btn">⚡</div>
+                </div>
+                <div class="clock-widget">
+                    <div class="clock-time">22:47</div>
+                    <div class="clock-date">MON 30.03.2026</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="widgets-panel">
+
+        <div class="widget">
+            <div class="widget-title">⬡ System Monitor</div>
+            <div class="metric">
+                <div class="metric-row">
+                    <span class="metric-label">CPU</span>
+                    <span class="metric-val" style="color: var(--accent-cyan)">47%</span>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-fill bar-cyan" style="width: 47%"></div>
+                </div>
+            </div>
+            <div class="metric">
+                <div class="metric-row">
+                    <span class="metric-label">RAM</span>
+                    <span class="metric-val" style="color: var(--accent-violet)">68%</span>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-fill bar-violet" style="width: 68%"></div>
+                </div>
+            </div>
+            <div class="metric">
+                <div class="metric-row">
+                    <span class="metric-label">GPU</span>
+                    <span class="metric-val" style="color: var(--accent-rose)">87%</span>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-fill bar-rose" style="width: 87%"></div>
+                </div>
+            </div>
+            <div class="metric" style="margin-bottom: 0">
+                <div class="metric-row">
+                    <span class="metric-label">DISK</span>
+                    <span class="metric-val" style="color: var(--accent-gold)">34%</span>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-fill bar-gold" style="width: 34%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-title">◎ Weather · Local</div>
+            <div class="weather-main">
+                <div class="weather-icon">🌤️</div>
+                <div>
+                    <div class="weather-temp">28°</div>
+                    <div class="weather-city">Guwahati, AS</div>
+                </div>
+            </div>
+            <div class="weather-desc">Partly Cloudy</div>
+            <div class="weather-details">
+                <div class="wd-item">HUMIDITY<span>74%</span></div>
+                <div class="wd-item">WIND<span>12 km/h</span></div>
+                <div class="wd-item">UV IDX<span>High</span></div>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-title">◈ Quick Notes</div>
+            <div class="note-item">
+                <div class="note-dot" style="
+              background: var(--accent-cyan);
+              box-shadow: 0 0 6px var(--accent-cyan);
+            "></div>
+                <div class="note-text">
+                    <strong>Deploy v4.2.1</strong>Finalise GPU shader pipeline
+                </div>
+            </div>
+            <div class="note-item">
+                <div class="note-dot" style="
+              background: var(--accent-violet);
+              box-shadow: 0 0 6px var(--accent-violet);
+            "></div>
+                <div class="note-text">
+                    <strong>Security Audit</strong>Patch CVE-2026-0183
+                </div>
+            </div>
+            <div class="note-item">
+                <div class="note-dot" style="
+              background: var(--accent-gold);
+              box-shadow: 0 0 6px var(--accent-gold);
+            "></div>
+                <div class="note-text">
+                    <strong>AI Model</strong>Benchmark on new dataset
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="window-manager">
+        <div class="os-window win-browser">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🌐</span><span class="win-title">NEXUS
+                        BROWSER</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-browser">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="mock-browser">
+                    <div
+                        style="display: flex; gap: 8px; margin-bottom: 20px; align-items: center; border-bottom: 1px solid rgba(0, 245, 255, 0.2); padding-bottom: 15px;">
+                        <span style="font-size: 16px; cursor: pointer; color: var(--text-muted);">&larr;</span>
+                        <span style="font-size: 16px; cursor: pointer; color: var(--text-muted);">&rarr;</span>
+                        <span style="font-size: 16px; cursor: pointer; color: var(--text-muted);">↻</span>
+                        <div
+                            style="flex: 1; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(0,245,255,0.1); font-family: 'JetBrains Mono'; font-size: 12px; color: var(--text-primary);">
+                            https://nexus-central.gov/secure-link</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px;">
+                        <span
+                            style="font-size: 48px; display: block; filter: drop-shadow(0 0 10px rgba(0,245,255,0.5));">🌐</span>
+                        <h2 style="font-family: 'Orbitron'; margin: 15px 0 25px 0;">NEXUS SEARCH</h2>
+                        <div
+                            style="max-width: 400px; margin: 0 auto; background: rgba(0, 0, 0, 0.4); padding: 12px 20px; border-radius: 20px; border: 1px solid rgba(0, 245, 255, 0.3); text-align: left; color: var(--text-muted);">
+                            Query the quantum net...
+                        </div>
+                        <div
+                            style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; font-size: 11px; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px;">
+                            <span>Decrypted Files</span> • <span>Secure Comms</span> • <span>Global Nodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-ai">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🔮</span><span class="win-title">AI STUDIO</span>
+                </div>
+                <div class="win-controls"><label class="win-btn close" for="app-ai">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="mock-ai" style="display: flex; flex-direction: column; height: 100%;">
+                    <div
+                        style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 74, 138, 0.2);">
+                        <div
+                            style="align-self: flex-start; background: rgba(255, 74, 138, 0.1); padding: 10px 15px; border-radius: 2px 12px 12px 12px; border: 1px solid rgba(255, 74, 138, 0.3); max-width: 80%;">
+                            <strong
+                                style="color: var(--accent-rose); font-family: 'Orbitron'; font-size: 10px; display: block; margin-bottom: 4px;">NEXUS-AI</strong>
+                            Initializing Neural Net pathways. How can I assist you, Commander?
+                        </div>
+                        <div
+                            style="align-self: flex-end; background: rgba(0, 245, 255, 0.1); padding: 10px 15px; border-radius: 12px 2px 12px 12px; border: 1px solid rgba(0, 245, 255, 0.3); max-width: 80%; color: var(--text-primary);">
+                            Check system integrity and encrypt communications.
+                        </div>
+                        <div
+                            style="align-self: flex-start; background: rgba(255, 74, 138, 0.1); padding: 10px 15px; border-radius: 2px 12px 12px 12px; border: 1px solid rgba(255, 74, 138, 0.3); max-width: 80%;">
+                            <strong
+                                style="color: var(--accent-rose); font-family: 'Orbitron'; font-size: 10px; display: block; margin-bottom: 4px;">NEXUS-AI</strong>
+                            All 12 nodes are stable. Quantum encryption active across all channels.
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <input type="text" placeholder="Command AI..." disabled
+                            style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid rgba(255, 74, 138, 0.2); padding: 10px 15px; color: var(--text-primary); border-radius: 6px; outline: none;">
+                        <button
+                            style="background: var(--accent-rose); color: #fff; border: none; padding: 0 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">▲</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-vault">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🛡️</span><span class="win-title">VAULT
+                        GUARD</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-vault">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="mock-vault" style="height: 100%; display: flex; flex-direction: column;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 245, 255, 0.2); padding-bottom: 15px; margin-bottom: 15px;">
+                        <span
+                            style="font-family: 'Orbitron'; color: var(--accent-cyan); font-size: 14px;">ROOT/SECURE/</span>
+                        <span
+                            style="background: rgba(0, 245, 255, 0.1); border: 1px solid var(--accent-cyan); padding: 4px 10px; border-radius: 4px; font-size: 11px; color: var(--accent-cyan); animation: blink 2s infinite;">FULL
+                            SCAN</span>
+                    </div>
+                    <div style="display: grid; gap: 10px; overflow-y: auto;">
+                        <div
+                            style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 6px; border-left: 3px solid var(--accent-cyan);">
+                            <span><span style="margin-right:12px;">📁</span>core_sys_config</span><span
+                                style="color: var(--text-muted); font-family: 'JetBrains Mono';">124 KB</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 6px; border-left: 3px solid var(--accent-violet);">
+                            <span><span style="margin-right:12px;">🔒</span>master_key.dec</span><span
+                                style="color: var(--text-muted); font-family: 'JetBrains Mono';">2.1 MB</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 6px; border-left: 3px solid var(--accent-rose);">
+                            <span><span style="margin-right:12px;">☣️</span>quarantine_bay</span><span
+                                style="color: var(--text-muted); font-family: 'JetBrains Mono';">0 KB</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 6px; border-left: 3px solid var(--accent-gold);">
+                            <span><span style="margin-right:12px;">📄</span>mission_logs.txt</span><span
+                                style="color: var(--text-muted); font-family: 'JetBrains Mono';">48 KB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-signal">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">📡</span><span class="win-title">SIGNAL
+                        MONITOR</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-signal">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="mock-signal"
+                    style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <style>
+                        @keyframes spinRotate {
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        @keyframes pulseScale {
+
+                            0%,
+                            100% {
+                                transform: scale(1);
+                            }
+
+                            50% {
+                                transform: scale(1.5);
+                            }
+                        }
+                    </style>
+                    <div
+                        style="position: relative; width: 140px; height: 140px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid rgba(0, 245, 255, 0.3); display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(0,245,255,0.1) 0%, transparent 70%);">
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px dashed var(--accent-cyan); animation: spinRotate 10s linear infinite;">
+                        </div>
+                        <div
+                            style="position: absolute; width: 60%; height: 60%; border-radius: 50%; border: 1px solid var(--accent-violet);">
+                        </div>
+                        <div
+                            style="position: absolute; width: 20%; height: 20%; background: var(--accent-cyan); border-radius: 50%; box-shadow: 0 0 15px var(--accent-cyan); animation: pulseScale 2s infinite;">
+                        </div>
+                    </div>
+                    <h3 style="color: var(--accent-cyan); font-family: 'Orbitron'; margin-bottom: 20px;">Scanning
+                        Subspace Frequencies...</h3>
+                    <p style="color: var(--text-muted); font-size: 11px; letter-spacing: 2px;">FREQUENCY: 44.82GHz |
+                        TRACKING ACTIVE</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-bio">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🧬</span><span class="win-title">BIO
+                        SCANNER</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-bio">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="win-content-mock">
+                    <div class="loader"></div>
+                    <h2>Bio Scanner</h2>
+                    <p>Analyzing biometric anomalies...</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-quant">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">💠</span><span class="win-title">QUANTUM
+                        CALC</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-quant">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="win-content-mock">
+                    <div class="loader"></div>
+                    <h2>Quantum Calc</h2>
+                    <p>Resolving superposition matrices...</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-pulse">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🎵</span><span class="win-title">PULSE
+                        AUDIO</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-pulse">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="win-content-mock">
+                    <div class="loader"></div>
+                    <h2>Pulse Audio</h2>
+                    <p>Loading harmonic synth modules...</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-space">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🌌</span><span class="win-title">SPACE MAP</span>
+                </div>
+                <div class="win-controls"><label class="win-btn close" for="app-space">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="win-content-mock">
+                    <div class="loader"></div>
+                    <h2>Space Map</h2>
+                    <p>Charting local star sector trajectories...</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-settings">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">⚙️</span><span class="win-title">CORE
+                        SETTINGS</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-settings">✕</label></div>
+            </div>
+            <div class="win-body" style="padding: 20px;">
+                <div class="app-settings-inner">
+                    <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 14px;">
+                        <div class="setting-info">
+                            <h3>Environment Aesthetics</h3>
+                            <p>Select the global OS color and visual palette.</p>
+                        </div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <label for="theme-dark"
+                                style="background:#020510; color:#00f5ff; border:1px solid rgba(0, 245, 255, 0.4); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px; transition:0.2s; box-shadow:0 0 10px rgba(0,245,255,0.1);">Dark
+                                Neon</label>
+
+                            <label for="theme-light"
+                                style="background:#e2e8f0; color:#0077dd; border:1px solid rgba(0, 119, 221, 0.4); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px; transition:0.2s; box-shadow:0 0 10px rgba(0,119,221,0.1);">Light
+                                Mode</label>
+
+                            <label for="theme-matrix"
+                                style="background:#000500; color:#00ff00; border:1px solid rgba(0, 255, 0, 0.4); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px; transition:0.2s; box-shadow:0 0 10px rgba(0,255,0,0.1);">Matrix</label>
+                        </div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <h3>Hardware Acceleration</h3>
+                            <p>Force GPU usage for CSS animations and blurs.</p>
+                        </div>
+                        <label class="css-switch">
+                            <input type="checkbox" checked>
+                            <span class="css-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <h3>Secure Telemetry</h3>
+                            <p>Transmit anonymous kernel logs to Nexus Central.</p>
+                        </div>
+                        <label class="css-switch">
+                            <input type="checkbox" checked>
+                            <span class="css-slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- TASK MANAGER GRAPH -->
+                    <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+                        <div class="setting-info"
+                            style="width: 100%; display: flex; justify-content: space-between; align-items: baseline;">
+                            <h3 style="margin-bottom:0;">Task Manager - System Load</h3>
+                            <span
+                                style="font-family: 'JetBrains Mono'; font-size:10px; color:var(--accent-cyan); letter-spacing:1px; font-weight:700; animation: blink 2s infinite;">[MONITORING]</span>
+                        </div>
+                        <div class="tm-graph">
+                            <svg class="tm-svg" viewBox="0 0 200 100" preserveAspectRatio="none">
+                                <path
+                                    d="M0,100 L0,60 L10,40 L20,80 L30,30 L40,50 L50,10 L60,70 L70,90 L80,30 L90,60 L100,60 L110,40 L120,80 L130,30 L140,50 L150,10 L160,70 L170,90 L180,30 L190,60 L200,60 L200,100 Z"
+                                    class="tm-path"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-data">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">📊</span><span class="win-title">DATA FLUX</span>
+                </div>
+                <div class="win-controls"><label class="win-btn close" for="app-data">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="win-content-mock">
+                    <div class="loader"></div>
+                    <h2>Data Flux</h2>
+                    <p>Syncing live telemetry streams...</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-console">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🔭</span><span class="win-title">DEV
+                        CONSOLE</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-console">✕</label></div>
+            </div>
+            <div class="win-body">
+                <div class="win-content-mock">
+                    <div class="loader"></div>
+                    <h2>Dev Console</h2>
+                    <p>Awaiting compiler instructions...</p>
+                </div>
+            </div>
+        </div>
+        <div class="os-window win-files">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">🗂️</span><span class="win-title">HYPER
+                        FILES</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-files">✕</label></div>
+            </div>
+            <div class="win-body" style="padding: 0; background: none;">
+                <input type="radio" name="fe-tabs" id="fe-tab-home" class="app-toggle" checked />
+                <input type="radio" name="fe-tabs" id="fe-tab-docs" class="app-toggle" />
+                <input type="radio" name="fe-tabs" id="fe-tab-imgs" class="app-toggle" />
+                <input type="radio" name="fe-tabs" id="fe-tab-sys" class="app-toggle" />
+
+                <div class="fe-container">
+                    <div class="fe-sidebar">
+                        <label for="fe-tab-home" class="fe-nav-btn">🏠 Home</label>
+                        <label for="fe-tab-docs" class="fe-nav-btn">📄 Documents</label>
+                        <label for="fe-tab-imgs" class="fe-nav-btn">🖼️ Media</label>
+                        <label for="fe-tab-sys" class="fe-nav-btn">⚙️ System</label>
+                    </div>
+                    <div class="fe-content">
+                        <div class="fe-pane" id="pane-home">
+                            <label class="fe-file" for="fe-tab-docs">
+                                <div class="fe-file-icon">📁</div>
+                                <div class="fe-file-name">Documents</div>
+                            </label>
+                            <label class="fe-file" for="fe-tab-imgs">
+                                <div class="fe-file-icon">📁</div>
+                                <div class="fe-file-name">Media</div>
+                            </label>
+                            <label class="fe-file" for="fe-tab-sys">
+                                <div class="fe-file-icon">📁</div>
+                                <div class="fe-file-name">System</div>
+                            </label>
+                            <label class="fe-file" for="app-text">
+                                <div class="fe-file-icon">📝</div>
+                                <div class="fe-file-name">Welcome.txt</div>
+                            </label>
+                        </div>
+                        <div class="fe-pane" id="pane-docs">
+                            <div class="fe-file">
+                                <div class="fe-file-icon">📄</div>
+                                <div class="fe-file-name">Mission_Brief.doc</div>
+                            </div>
+                            <div class="fe-file">
+                                <div class="fe-file-icon">📊</div>
+                                <div class="fe-file-name">Telemetry.xls</div>
+                            </div>
+                            <div class="fe-file">
+                                <div class="fe-file-icon">🔐</div>
+                                <div class="fe-file-name">Passwords.kdbx</div>
+                            </div>
+                        </div>
+                        <div class="fe-pane" id="pane-imgs">
+                            <div class="fe-file">
+                                <div class="fe-file-icon">🌌</div>
+                                <div class="fe-file-name">Sector_Map.png</div>
+                            </div>
+                            <div class="fe-file">
+                                <div class="fe-file-icon">🛰️</div>
+                                <div class="fe-file-name">Sat_Feed_04.jpg</div>
+                            </div>
+                            <div class="fe-file">
+                                <div class="fe-file-icon">🎵</div>
+                                <div class="fe-file-name">Pulse_Audio_Mix.mp3</div>
+                            </div>
+                        </div>
+                        <div class="fe-pane" id="pane-sys">
+                            <div class="fe-file">
+                                <div class="fe-file-icon">⚙️</div>
+                                <div class="fe-file-name">kernel32.dll</div>
+                            </div>
+                            <div class="fe-file">
+                                <div class="fe-file-icon">🛡️</div>
+                                <div class="fe-file-name">vault.sys</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="os-window win-text">
+            <div class="win-header">
+                <div class="win-title-area"><span class="win-icon">📝</span><span class="win-title">Editor -
+                        Welcome.txt</span></div>
+                <div class="win-controls"><label class="win-btn close" for="app-text">✕</label></div>
+            </div>
+            <div class="win-body" style="padding: 0;">
+                <textarea
+                    style="width: 100%; height: 100%; background: #0a0e17; color: #00f5ff; border: none; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; resize: none; outline: none; box-sizing: border-box;">
+Welcome to NEXOS v4.2.1
+
+This is a totally functional mock operating system powered completely by HTML5 and CSS3 (Zero Javascript).
+
+SYSTEM SPECS:
+- 12 independent executable nodes.
+- Quantum CSS logic routing.
+- Hyper Files persistent interface.
+
+Enjoy your stay, Commander. 
+[Cursor EOF]
+                    </textarea>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- TRAY FLYOUTS [MOVED OUTSIDE DESKTOP TO FIX Z-INDEX] -->
+    <div class="tray-flyout vol-flyout">
+        <div class="flyout-header">System Volume</div>
+        <div class="vol-control">
+            <span>🔈</span>
+            <input type="range" class="pure-slider" min="0" max="100" value="70">
+            <span>🔊</span>
+        </div>
+    </div>
+
+    <div class="tray-flyout notif-flyout">
+        <div class="flyout-header">
+            Notifications
+            <span class="clear-btn">Clear All</span>
+        </div>
+        <div class="notif-list">
+            <div class="notif-card">
+                <div class="n-icon">🛡️</div>
+                <div class="n-content">
+                    <strong>Threat Neutralized</strong>
+                    <p>Unauthorized access attempt blocked by Vault Guard.</p>
+                </div>
+            </div>
+            <div class="notif-card">
+                <div class="n-icon">🔄</div>
+                <div class="n-content">
+                    <strong>System Update</strong>
+                    <p>Kernel v4.2.1 successfully patched.</p>
+                </div>
+            </div>
+            <div class="notif-card">
+                <div class="n-icon">📩</div>
+                <div class="n-content">
+                    <strong>Encrypted Message</strong>
+                    <p>Incoming transmission from Command.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW TRAY FLYOUT & SCREENS -->
+    <div class="tray-flyout net-flyout">
+        <div class="flyout-header">Network Connections</div>
+        <div class="notif-list" style="max-height: 250px;">
+            <div class="notif-card"
+                style="border-left: 3px solid var(--accent-cyan); background: rgba(0, 245, 255, 0.05);">
+                <div class="n-icon">📶</div>
+                <div class="n-content" style="width: 100%;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <strong style="font-size: 13px;">NEXUS-SECURE-5G</strong>
+                        <span
+                            style="font-size: 10px; color: var(--accent-cyan); font-family: 'JetBrains Mono';">Connected</span>
+                    </div>
+                    <p style="margin-top: 4px;">Subspace encryption active. 10Gbps.</p>
+                </div>
+            </div>
+            <div class="notif-card">
+                <div class="n-icon">🔒</div>
+                <div class="n-content">
+                    <strong style="font-size: 13px;">GUEST-NODE-04</strong>
+                    <p style="margin-top: 4px;">Secured via WPA3 protocol.</p>
+                </div>
+            </div>
+            <div class="notif-card">
+                <div class="n-icon">📡</div>
+                <div class="n-content">
+                    <strong style="font-size: 13px;">ORBITAL-RELAY</strong>
+                    <p style="margin-top: 4px;">Signal strength: Poor / Weak</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <label class="sleep-screen" for="sys-sleep"></label>
+
+    <label class="restart-screen" for="sys-restart">
+        <div class="restart-info">REBOOTING CORE SYSTEMS...</div>
+        <div style="color: var(--text-muted); font-size: 12px; margin-top: 20px; font-family: 'JetBrains Mono';">[Click
+            to cancel]</div>
+    </label>
+
+    <div class="shutdown-screen">
+        <div class="shutdown-logo">NEXOS</div>
+        <div class="shutdown-text">POWERING DOWN... SECURING SESSION...</div>
+    </div>
+
+</body>
+
+</html>
